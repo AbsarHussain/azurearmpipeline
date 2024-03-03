@@ -1,0 +1,6 @@
+@aspnetapi_HostAddress = http://localhost:5007
+
+GET {{aspnetapi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

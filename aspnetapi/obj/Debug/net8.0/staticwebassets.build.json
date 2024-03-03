@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "00xQ6qlSFG4/Qgw6oKZVxHZkHoUoSjN3DSwbUF5k1Xs=",
+  "Source": "aspnetapi",
+  "BasePath": "_content/aspnetapi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
