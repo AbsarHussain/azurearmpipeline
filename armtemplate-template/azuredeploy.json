@@ -26,6 +26,47 @@
       "metadata": {
         "description": "Describes plan's pricing tier and capacity. Check details at https://azure.microsoft.com/en-us/pricing/details/app-service/"
       }
+    },
+    "appbaseAdminLogin": {
+      "type": "string",
+      "minLength": 1
+    },
+    "appbaseAdminLoginPassword": {
+      "type": "securestring"
+    },
+    "appBaseNameName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "appBaseNameCollation": {
+      "type": "string",
+      "minLength": 1,
+      "defaultValue": "SQL_Latin1_General_CP1_CI_AS"
+    },
+    "appBaseNameEdition": {
+      "type": "string",
+      "defaultValue": "Basic",
+      "allowedValues": [
+        "Basic",
+        "Standard",
+        "Premium"
+      ]
+    },
+    "appBaseNameRequestedServiceObjectiveName": {
+      "type": "string",
+      "defaultValue": "Basic",
+      "allowedValues": [
+        "Basic",
+        "S0",
+        "S1",
+        "S2",
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "metadata": {
+        "description": "Describes the performance level for Edition"
+      }
     }
   },
   "variables": {},
@@ -67,6 +108,84 @@
       "identity": {
         "type": "SystemAssigned"
       }
+    },
+    {
+      "name": "[parameters('appBaseName')]",
+      "type": "Microsoft.Sql/servers",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2021-02-01-preview",
+      "dependsOn": [],
+      "tags": {
+        "displayName": "appbase"
+      },
+      "properties": {
+        "administratorLogin": "[parameters('appbaseAdminLogin')]",
+        "administratorLoginPassword": "[parameters('appbaseAdminLoginPassword')]",
+        "version": "12.0"
+      },
+      "resources": [
+        {
+          "name": "AllowAllWindowsAzureIps",
+          "type": "firewallRules",
+          "location": "[resourceGroup().location]",
+          "apiVersion": "2021-02-01-preview",
+          "dependsOn": [
+            "[resourceId('Microsoft.Sql/servers', parameters('appbaseName'))]"
+          ],
+          "properties": {
+            "startIpAddress": "0.0.0.0",
+            "endIpAddress": "0.0.0.0"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[parameters('appBaseName')]",
+      "type": "Microsoft.Sql/servers",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2021-02-01-preview",
+      "dependsOn": [],
+      "tags": {
+        "displayName": "appbase"
+      },
+      "properties": {
+        "administratorLogin": "[parameters('appbaseAdminLogin')]",
+        "administratorLoginPassword": "[parameters('appbaseAdminLoginPassword')]",
+        "version": "12.0"
+      },
+      "resources": [
+        {
+          "name": "AllowAllWindowsAzureIps",
+          "type": "firewallRules",
+          "location": "[resourceGroup().location]",
+          "apiVersion": "2021-02-01-preview",
+          "dependsOn": [
+            "[resourceId('Microsoft.Sql/servers', parameters('appBaseName'))]"
+          ],
+          "properties": {
+            "startIpAddress": "0.0.0.0",
+            "endIpAddress": "0.0.0.0"
+          }
+        },
+        {
+          "name": "[parameters('appBaseNameName')]",
+          "type": "databases",
+          "location": "[resourceGroup().location]",
+          "apiVersion": "2021-02-01-preview",
+          "dependsOn": [
+            "[resourceId('Microsoft.Sql/servers', parameters('appBaseName'))]"
+          ],
+          "tags": {
+            "displayName": "appBaseName"
+          },
+          "properties": {
+            "collation": "[parameters('appBaseNameCollation')]",
+            "edition": "[parameters('appBaseNameEdition')]",
+            "maxSizeBytes": 1073741824,
+            "requestedServiceObjectiveName": "[parameters('appBaseNameRequestedServiceObjectiveName')]"
+          }
+        }
+      ]
     }
   ],
   "outputs": {}
