@@ -15,7 +15,7 @@
         "value": "#arm_adminpassword#"
     },
     "appBaseNameName": {
-        "value": "" // TODO: Fill in parameter value
+        "value": "#arm_appBaseName#"
     },
     "appBaseNameCollation": {
         "value": "SQL_Latin1_General_CP1_CI_AS"
