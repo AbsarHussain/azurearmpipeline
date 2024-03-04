@@ -30,3 +30,4 @@ C:\Users\absar\source\repos\aspnetapi\aspnetapi\obj\Debug\net8.0\refint\aspnetap
 C:\Users\absar\source\repos\aspnetapi\aspnetapi\obj\Debug\net8.0\aspnetapi.pdb
 C:\Users\absar\source\repos\aspnetapi\aspnetapi\obj\Debug\net8.0\aspnetapi.genruntimeconfig.cache
 C:\Users\absar\source\repos\aspnetapi\aspnetapi\obj\Debug\net8.0\ref\aspnetapi.dll
+C:\Users\absar\source\repos\aspnetapi\aspnetapi\obj\Debug\net8.0\aspnetapi.sourcelink.json

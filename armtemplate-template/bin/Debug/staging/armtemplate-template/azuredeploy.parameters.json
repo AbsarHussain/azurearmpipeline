@@ -7,6 +7,24 @@
     },
     "appBaseSkuName": {
       "value": "#arm_appBaseSkuName#"
+    },
+    "appbaseAdminLogin": {
+        "value": "#arm_adminlogin#" 
+    },
+    "appbaseAdminLoginPassword": {
+        "value": "#arm_adminpassword#"
+    },
+    "appBaseNameName": {
+        "value": "#arm_appBaseName#"
+    },
+    "appBaseNameCollation": {
+        "value": "SQL_Latin1_General_CP1_CI_AS"
+    },
+    "appBaseNameEdition": {
+        "value": "Basic"
+    },
+    "appBaseNameRequestedServiceObjectiveName": {
+        "value": "Basic"
     }
   }
 }

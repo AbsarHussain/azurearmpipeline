@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("aspnetapi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+01212212a3fa7a3c51047270d17a3bab8438c071")]
 [assembly: System.Reflection.AssemblyProductAttribute("aspnetapi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("aspnetapi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
